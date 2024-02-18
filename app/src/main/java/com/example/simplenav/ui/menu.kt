@@ -29,7 +29,6 @@ fun MyMenu( showMenu: Boolean = false,
             .padding(paddingValues)
             .wrapContentSize(Alignment.TopEnd)
     ) {
-        val menuItems = listOf("Item  1", "Item  2", "Item  3")
         // DropdownMenu composable
         DropdownMenu(
             expanded = showMenu,
@@ -45,7 +44,7 @@ fun MyMenu( showMenu: Boolean = false,
             DropdownMenuItem(
                 text = { Text(stringResource(id = R.string.menuItem2)) },
                 onClick = {
-                    Log.i(">>>>", "Menu Item 4 geklickt")
+                    Log.i(">>>>", "Menu Item 2 geklickt")
                     onToggleMenu()
                 }
             )

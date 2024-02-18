@@ -9,8 +9,8 @@
     <string name="detailsScreenLabel">Details</string>
     <string name="homeScreenLabel">Home</string>
 
-    <string name="menuItem1">Dialog</string>
-    <string name="menuItem2">tu das</string>
+    <string name="menuItem1">Item 1</string>
+    <string name="menuItem2">Item 2</string>
     <string name="menuItem3">home</string>
 
 

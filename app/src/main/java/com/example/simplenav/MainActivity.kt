@@ -24,7 +24,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.simplenav.ui.MyMenu
 import com.example.simplenav.ui.MyNavBar
 import com.example.simplenav.ui.MyTopBar
-import com.example.simplenav.ui.homeScreenRoute
+import com.example.simplenav.ui.ScreenInfo
 import com.example.simplenav.ui.navDestinations
 import com.example.simplenav.ui.theme.SimpleNavTheme
 
@@ -63,7 +63,7 @@ fun MyApp() {
     ) { paddingValues ->
         NavHost(
             navController = navController,
-            startDestination = homeScreenRoute,
+            startDestination = ScreenInfo.HomeScreen.route,
             modifier = Modifier
                 .padding(paddingValues)
         ) {
