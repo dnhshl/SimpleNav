@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">SimpleNav</string>
+
+    <string name="settingsScreenTitle">Einstellungen</string>
+    <string name="detailsScreenTitle">Details</string>
+    <string name="homeScreenTitle">Home</string>
+
+    <string name="settingsScreenLabel">Config</string>
+    <string name="detailsScreenLabel">Details</string>
+    <string name="homeScreenLabel">Home</string>
+
+    <string name="menuItem1">Dialog</string>
+    <string name="menuItem2">tu das</string>
+    <string name="menuItem3">home</string>
+
+
+</resources>
