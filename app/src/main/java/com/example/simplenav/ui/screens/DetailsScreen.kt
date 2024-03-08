@@ -13,8 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.simplenav.ui.ScreenInfo
-import com.example.simplenav.ui.navigateTo
+import com.example.simplenav.ui.navigation.NavDestination
+
 
 @Composable
 fun DetailsScreen(navController: NavController) {
@@ -25,8 +25,8 @@ fun DetailsScreen(navController: NavController) {
     ) {
         Text("This is the Detail Screen", fontSize =  24.sp)
         Spacer(modifier = Modifier.height(16.dp))
-        Button(onClick = { navigateTo(ScreenInfo.HomeScreen.route, navController) }) {
-            Text("Go to Home Screen")
+        Button(onClick = { navController.navigate(NavDestination.Info.route) }) {
+            Text("Go to dialog")
         }
     }
 }

@@ -15,18 +15,17 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.simplenav.ui.navigation.NavDestination
 
-
 @Composable
-fun HomeScreen(navController: NavController) {
+fun OtherScreen2(navController: NavController) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text("Welcome to Home Screen", fontSize =  24.sp)
+        Text("Other Screen 2", fontSize =  24.sp)
         Spacer(modifier = Modifier.height(16.dp))
-        Button(onClick = { navController.navigate(NavDestination.Screen1.route)}) {
-            Text("Go to full screen 1")
+        Button(onClick = { navController.navigate(NavDestination.Home.route) }) {
+            Text("go back to home screen")
         }
     }
 }

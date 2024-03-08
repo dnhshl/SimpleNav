@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import com.example.simplenav.R
+import com.example.simplenav.ui.navigation.NavDestination
 
 
 @Composable
@@ -53,7 +54,7 @@ fun MyMenu( showMenu: Boolean = false,
                 onClick = {
                     Log.i(">>>>", "Menu Item 3 geklickt")
                     onToggleMenu()
-                    navigateTo(ScreenInfo.HomeScreen.route, navController)
+                    navController.navigate(NavDestination.Home.route)
                 }
             )
         }
