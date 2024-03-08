@@ -1,4 +1,4 @@
-package com.example.simplenav.ui
+package com.example.simplenav.ui.navigation
 
 import android.util.Log
 import androidx.compose.foundation.layout.Box
@@ -15,7 +15,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import com.example.simplenav.R
-import com.example.simplenav.ui.navigation.NavDestination
 
 
 @Composable
@@ -52,9 +51,9 @@ fun MyMenu( showMenu: Boolean = false,
             DropdownMenuItem(
                 text = { Text(stringResource(id = R.string.menuItem3)) },
                 onClick = {
-                    Log.i(">>>>", "Menu Item 3 geklickt")
+                    Log.i(">>>>", "Info")
                     onToggleMenu()
-                    navController.navigate(NavDestination.Home.route)
+                    navController.navigate(NavDestination.Info.route)
                 }
             )
         }

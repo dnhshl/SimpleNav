@@ -14,6 +14,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.dialog
 import androidx.navigation.compose.rememberNavController
+import com.example.simplenav.ui.navigation.MyMenu
 import com.example.simplenav.ui.navigation.MyNavBar
 import com.example.simplenav.ui.navigation.MyTopBar
 import com.example.simplenav.ui.navigation.NavDestination
@@ -29,7 +30,6 @@ fun MyApp() {
 
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route ?: ""
-
 
     var showMenu by remember { mutableStateOf(false) }
 
@@ -70,8 +70,15 @@ fun MyApp() {
                     screen.content(navController)
                 }
             }
-
         }
+
+        MyMenu(
+            showMenu = showMenu,
+            navController = navController,
+            paddingValues = paddingValues,
+            onToggleMenu = { showMenu = !showMenu }
+        )
+
     }
 
 }

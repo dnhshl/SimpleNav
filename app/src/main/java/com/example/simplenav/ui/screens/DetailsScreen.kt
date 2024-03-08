@@ -25,7 +25,7 @@ fun DetailsScreen(navController: NavController) {
     ) {
         Text("This is the Detail Screen", fontSize =  24.sp)
         Spacer(modifier = Modifier.height(16.dp))
-        Button(onClick = { navController.navigate(NavDestination.Info.route) }) {
+        Button(onClick = { navController.navigate(NavDestination.AlertDialog.route) }) {
             Text("Go to dialog")
         }
     }

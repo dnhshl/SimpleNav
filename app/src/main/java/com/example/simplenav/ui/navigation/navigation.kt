@@ -1,39 +1,23 @@
 package com.example.simplenav.ui.navigation
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.outlined.CheckCircle
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Settings
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarItem
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.navigation.NavController
-import androidx.navigation.NavGraph.Companion.findStartDestination
-import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.simplenav.R
+import com.example.simplenav.ui.screens.AlertDialogScreen
 import com.example.simplenav.ui.screens.DetailsScreen
 import com.example.simplenav.ui.screens.HomeScreen
 import com.example.simplenav.ui.screens.InfoScreen
 import com.example.simplenav.ui.screens.OtherScreen1
 import com.example.simplenav.ui.screens.OtherScreen2
-
 import com.example.simplenav.ui.screens.SettingsScreen
 
 sealed class NavDestination(
@@ -90,6 +74,12 @@ sealed class NavDestination(
         route = "info",
         content = { navController -> InfoScreen(navController) }
     )
+
+
+    object AlertDialog : NavDestination(
+        route = "alert_dialog",
+        content = { navController -> AlertDialogScreen(navController) }
+    )
 }
 
 
@@ -107,7 +97,8 @@ val otherDestinations = listOf (
 val navDestinations = bottomBarNavDestinations + otherDestinations
 
 val dialogDestinations = listOf (
-    NavDestination.Info
+    NavDestination.Info,
+    NavDestination.AlertDialog
 )
 fun isBottomNavDestination(route: String): Boolean {
     return bottomBarNavDestinations.any { it.route == route }
