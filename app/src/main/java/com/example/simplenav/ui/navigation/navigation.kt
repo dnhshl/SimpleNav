@@ -29,12 +29,18 @@ sealed class NavDestination(
     val showArrowBack: Boolean = false,
     val content: @Composable (NavController) -> Unit
 ) {
+
+    // hier alle Bildschirme mit den notwendigen Infos dazu listen
+
+    // BottomNavScreens
+
     object Home : NavDestination(
-        route = "home",
-        title = R.string.homeScreenTitle,
-        label = R.string.homeScreenLabel,
-        selectedIcon = Icons.Filled.Home,
-        unselectedIcon =Icons.Outlined.Home,
+        route = "home",                          // eindeutige Kennung
+        title = R.string.homeScreenTitle,        // Titel in der TopBar
+        label = R.string.homeScreenLabel,        // Label in der BottomBar
+        selectedIcon = Icons.Filled.Home,        // Icon in der BottomBar, wenn gewählt
+        unselectedIcon =Icons.Outlined.Home,     // Icon in der BottomBar, wenn nicht gewählt
+        // Lambda Funktion, über die der Screen aufgerufen wird
         content = { navController -> HomeScreen(navController) }
     )
 
@@ -56,25 +62,29 @@ sealed class NavDestination(
         content = { navController -> SettingsScreen(navController) }
     )
 
+    // FullScreens (benötigen keine Icons und kein Label;
+    // dafür aber showArrowBack = true für den Zurück Pfeil in der TopBar
+
     object Screen1 : NavDestination(
         route = "other1",
-        title = R.string.settingsScreenTitle,
+        title = R.string.otherScreen1Title,
         showArrowBack = true,
         content = { navController -> OtherScreen1(navController) }
     )
 
     object Screen2 : NavDestination(
         route = "other2",
-        title = R.string.settingsScreenTitle,
+        title = R.string.otherScreen2Title,
         showArrowBack = true,
         content = { navController -> OtherScreen2(navController) }
     )
+
+    // Destination Screens
 
     object Info : NavDestination(
         route = "info",
         content = { navController -> InfoScreen(navController) }
     )
-
 
     object AlertDialog : NavDestination(
         route = "alert_dialog",
@@ -83,29 +93,31 @@ sealed class NavDestination(
 }
 
 
+// Hier alle Bildschirme listen, über die in der Bottom Bar navigiert werden soll
 val bottomBarNavDestinations = listOf (
     NavDestination.Home,
     NavDestination.Details,
     NavDestination.Settings,
 )
 
+
+// Hier alle Bildschirme listen, die als FullScreen Bildschirm angesprungen werden sollen
+// wenn es keine gibt, dann
+// val otherDestinations = emptyList<NavDestination>()
 val otherDestinations = listOf (
     NavDestination.Screen1,
     NavDestination.Screen2
 )
 
+
 val navDestinations = bottomBarNavDestinations + otherDestinations
 
+
+// Hier alle Dialogbilschirme listen
+// wenn es keine gibt, dann
+// val dialogDestinations = emptyList<NavDestination>()
 val dialogDestinations = listOf (
     NavDestination.Info,
     NavDestination.AlertDialog
 )
-fun isBottomNavDestination(route: String): Boolean {
-    return bottomBarNavDestinations.any { it.route == route }
-}
-fun hasArrowBack(route: String): Boolean {
-    val destination = navDestinations.filter { it.route == route }
-    if (destination.size > 0) return destination[0].showArrowBack
-    return false
-}
 

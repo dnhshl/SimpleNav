@@ -20,8 +20,6 @@ import com.example.simplenav.ui.navigation.MyTopBar
 import com.example.simplenav.ui.navigation.NavDestination
 import com.example.simplenav.ui.navigation.bottomBarNavDestinations
 import com.example.simplenav.ui.navigation.dialogDestinations
-import com.example.simplenav.ui.navigation.hasArrowBack
-import com.example.simplenav.ui.navigation.isBottomNavDestination
 import com.example.simplenav.ui.navigation.navDestinations
 
 @Composable
@@ -38,18 +36,15 @@ fun MyApp() {
         topBar = {
             MyTopBar(
                 navController = navController,
-                screens = bottomBarNavDestinations,
+                screens = navDestinations,
                 onMenuClick = { showMenu = !showMenu },
-                showArrowBack = hasArrowBack(currentRoute)
             )
         },
         bottomBar = {
-            if (isBottomNavDestination(currentRoute)) {
-                MyNavBar(
-                    navController = navController,
-                    screens = bottomBarNavDestinations
-                )
-            }
+            MyNavBar(
+                navController = navController,
+                screens = bottomBarNavDestinations
+            )
         }
     ) { paddingValues ->
         NavHost(
@@ -58,13 +53,13 @@ fun MyApp() {
             modifier = Modifier
                 .padding(paddingValues)
         ) {
-            // Screens via BottomBar
+            // Screens via BottomBar und Fullscreens
             navDestinations.forEach { screen ->
                 composable(screen.route) {
                     screen.content(navController)
                 }
             }
-            // Other Screens
+            // Dialog Screens
             dialogDestinations.forEach { screen ->
                 dialog(screen.route) {
                     screen.content(navController)

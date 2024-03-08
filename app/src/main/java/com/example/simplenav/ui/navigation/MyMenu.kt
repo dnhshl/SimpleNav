@@ -34,6 +34,7 @@ fun MyMenu( showMenu: Boolean = false,
             expanded = showMenu,
             onDismissRequest = { onToggleMenu() }
         ) {
+            // Hier können die Menu Items eingefügt werden
             DropdownMenuItem(
                 text = { Text(stringResource(id = R.string.menuItem1)) },
                 onClick = {

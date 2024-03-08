@@ -24,17 +24,17 @@ fun MyTopBar(
     navController: NavController,
     screens: List<NavDestination>,
     onMenuClick: () -> Unit,
-    showArrowBack: Boolean = false
 ) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
     val currentRoute = currentDestination?.route
 
-    var screenTitle = ""
+    val currentScreen = screens.firstOrNull { it.route == currentRoute }
 
-    screens.forEach { screen ->
-        if (currentRoute == screen.route) screenTitle = stringResource(screen.title)
-    }
+    var screenTitle = ""
+    currentScreen?.let { screenTitle = stringResource(id = it.title) }
+
+
 
     TopAppBar(
         colors = TopAppBarDefaults.topAppBarColors(
@@ -56,7 +56,7 @@ fun MyTopBar(
             }
         },
         navigationIcon = {
-            if (showArrowBack) {
+            if (currentScreen?.showArrowBack ?: false) {
                 IconButton(onClick = { navController.popBackStack() }) {
                     Icon(Icons.Default.ArrowBack, contentDescription = null)
                 }
