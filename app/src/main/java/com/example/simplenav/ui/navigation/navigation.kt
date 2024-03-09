@@ -79,7 +79,7 @@ sealed class NavDestination(
         content = { navController -> OtherScreen2(navController) }
     )
 
-    // Destination Screens
+    // Dialog Screens
 
     object Info : NavDestination(
         route = "info",

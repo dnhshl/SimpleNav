@@ -41,10 +41,12 @@ fun MyApp() {
             )
         },
         bottomBar = {
-            MyNavBar(
-                navController = navController,
-                screens = bottomBarNavDestinations
-            )
+            if (bottomBarNavDestinations.any { it.route == currentRoute }) {
+                MyNavBar(
+                    navController = navController,
+                    screens = bottomBarNavDestinations
+                )
+            }
         }
     ) { paddingValues ->
         NavHost(
