@@ -20,7 +20,7 @@ import com.example.simplenav.ui.screens.OtherScreen1
 import com.example.simplenav.ui.screens.OtherScreen2
 import com.example.simplenav.ui.screens.SettingsScreen
 
-sealed class NavDestination(
+sealed class MyNavDestination(
     val route: String,
     val title: Int = 0,
     val label: Int = 0,
@@ -34,7 +34,7 @@ sealed class NavDestination(
 
     // BottomNavScreens
 
-    object Home : NavDestination(
+    object Home : MyNavDestination(
         route = "home",                          // eindeutige Kennung
         title = R.string.homeScreenTitle,        // Titel in der TopBar
         label = R.string.homeScreenLabel,        // Label in der BottomBar
@@ -44,7 +44,7 @@ sealed class NavDestination(
         content = { navController -> HomeScreen(navController) }
     )
 
-    object Details : NavDestination(
+    object Details : MyNavDestination(
         route = "detail",
         title = R.string.detailsScreenTitle,
         label = R.string.detailsScreenLabel,
@@ -53,7 +53,7 @@ sealed class NavDestination(
         content = { navController -> DetailsScreen(navController) }
     )
 
-    object Settings : NavDestination(
+    object Settings : MyNavDestination(
         route = "settings",
         title = R.string.settingsScreenTitle,
         label = R.string.settingsScreenLabel,
@@ -65,14 +65,14 @@ sealed class NavDestination(
     // FullScreens (benötigen keine Icons und kein Label;
     // dafür aber showArrowBack = true für den Zurück Pfeil in der TopBar
 
-    object Screen1 : NavDestination(
+    object Screen1 : MyNavDestination(
         route = "other1",
         title = R.string.otherScreen1Title,
         showArrowBack = true,
         content = { navController -> OtherScreen1(navController) }
     )
 
-    object Screen2 : NavDestination(
+    object Screen2 : MyNavDestination(
         route = "other2",
         title = R.string.otherScreen2Title,
         showArrowBack = true,
@@ -81,12 +81,12 @@ sealed class NavDestination(
 
     // Dialog Screens
 
-    object Info : NavDestination(
+    object Info : MyNavDestination(
         route = "info",
         content = { navController -> InfoScreen(navController) }
     )
 
-    object AlertDialog : NavDestination(
+    object AlertDialog : MyNavDestination(
         route = "alert_dialog",
         content = { navController -> AlertDialogScreen(navController) }
     )
@@ -95,18 +95,18 @@ sealed class NavDestination(
 
 // Hier alle Bildschirme listen, über die in der Bottom Bar navigiert werden soll
 val bottomBarNavDestinations = listOf (
-    NavDestination.Home,
-    NavDestination.Details,
-    NavDestination.Settings,
+    MyNavDestination.Home,
+    MyNavDestination.Details,
+    MyNavDestination.Settings,
 )
 
 
 // Hier alle Bildschirme listen, die als FullScreen Bildschirm angesprungen werden sollen
 // wenn es keine gibt, dann
-// val otherDestinations = emptyList<NavDestination>()
+// val otherDestinations = emptyList<MyNavDestination>()
 val otherDestinations = listOf (
-    NavDestination.Screen1,
-    NavDestination.Screen2
+    MyNavDestination.Screen1,
+    MyNavDestination.Screen2
 )
 
 
@@ -115,9 +115,9 @@ val navDestinations = bottomBarNavDestinations + otherDestinations
 
 // Hier alle Dialogbilschirme listen
 // wenn es keine gibt, dann
-// val dialogDestinations = emptyList<NavDestination>()
+// val dialogDestinations = emptyList<MyNavDestination>()
 val dialogDestinations = listOf (
-    NavDestination.Info,
-    NavDestination.AlertDialog
+    MyNavDestination.Info,
+    MyNavDestination.AlertDialog
 )
 

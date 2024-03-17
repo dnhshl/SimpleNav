@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.simplenav.ui.navigation.NavDestination
+import com.example.simplenav.ui.navigation.MyNavDestination
 
 
 @Composable
@@ -25,7 +25,7 @@ fun OtherScreen1(navController: NavController) {
     ) {
         Text("Other Screen 1", fontSize =  24.sp)
         Spacer(modifier = Modifier.height(16.dp))
-        Button(onClick = { navController.navigate(NavDestination.Screen2.route) }) {
+        Button(onClick = { navController.navigate(MyNavDestination.Screen2.route) }) {
             Text("go to full screen 2")
         }
     }

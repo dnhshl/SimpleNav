@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.simplenav.ui.navigation.NavDestination
+import com.example.simplenav.ui.navigation.MyNavDestination
 
 @Composable
 fun OtherScreen2(navController: NavController) {
@@ -24,7 +24,7 @@ fun OtherScreen2(navController: NavController) {
     ) {
         Text("Other Screen 2", fontSize =  24.sp)
         Spacer(modifier = Modifier.height(16.dp))
-        Button(onClick = { navController.navigate(NavDestination.Home.route) }) {
+        Button(onClick = { navController.navigate(MyNavDestination.Home.route) }) {
             Text("go back to home screen")
         }
     }

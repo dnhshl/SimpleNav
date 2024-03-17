@@ -16,8 +16,8 @@ import androidx.navigation.compose.dialog
 import androidx.navigation.compose.rememberNavController
 import com.example.simplenav.ui.navigation.MyMenu
 import com.example.simplenav.ui.navigation.MyNavBar
+import com.example.simplenav.ui.navigation.MyNavDestination
 import com.example.simplenav.ui.navigation.MyTopBar
-import com.example.simplenav.ui.navigation.NavDestination
 import com.example.simplenav.ui.navigation.bottomBarNavDestinations
 import com.example.simplenav.ui.navigation.dialogDestinations
 import com.example.simplenav.ui.navigation.navDestinations
@@ -51,7 +51,7 @@ fun MyApp() {
     ) { paddingValues ->
         NavHost(
             navController = navController,
-            startDestination = NavDestination.Home.route,
+            startDestination = MyNavDestination.Home.route,
             modifier = Modifier
                 .padding(paddingValues)
         ) {
